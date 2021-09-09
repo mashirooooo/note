@@ -1,0 +1,41 @@
+{
+  "name": "demo",
+  "productName": "demo",
+  "version": "1.0.0",
+  "description": "electron demo",
+  "main": "dist/js/main.js",
+  "author": {
+    "name": "youliso",
+    "email": "youliso@Hotmail.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev": "node build/script/cfg.js && node build/script/dev.js",
+    "rebuild": "electron-rebuild -f",
+    "updcfg": "node build/script/cfg.js",
+    "build:win": "node build/script/cfg.js && node build/script/build.js && electron-builder -c build/cfg/build.json --win",
+    "build:linux": "node build/script/cfg.js && node build/script/build.js && electron-builder -c build/cfg/build.json --linux",
+    "build:mac": "node build/script/cfg.js && node build/script/build.js && electron-builder -c build/cfg/build.json --mac",
+    "postinstall": "electron-builder install-app-deps",
+    "test": "jest -c build/cfg/jest.json"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.1",
+    "css-loader": "^6.2.0",
+    "electron": "^14.0.0",
+    "electron-builder": "^22.11.7",
+    "electron-rebuild": "^3.2.3",
+    "esbuild-loader": "^2.15.1",
+    "html-webpack-plugin": "^5.3.2",
+    "jest": "^27.1.0",
+    "prettier": "^2.3.2",
+    "sass": "^1.39.0",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.2.1",
+    "ts-jest": "^27.0.4",
+    "typescript": "^4.4.2",
+    "webpack": "^5.52.0",
+    "webpack-dev-server": "^4.1.0"
+  },
+  "dependencies": {}
+}
