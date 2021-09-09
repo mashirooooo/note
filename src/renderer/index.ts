@@ -1,11 +1,16 @@
+import { createApp } from 'vue';
 import { windowLoad } from '@/renderer/common/window';
 import { domPropertyLoad } from '@/renderer/common/dom';
-import Store from '@/renderer/store';
-import '@/renderer/views/scss/color.scss';
-import '@/renderer/views/scss/index.scss';
+import { customize } from '@/renderer/store';
+import App from '@/renderer/views/index.vue';
+import router from '@/renderer/router';
 
-windowLoad(async (_, args) => {
+windowLoad((_, args) => {
+  router.addRoute({
+    path: '/',
+    redirect: args.route
+  });
+  customize.set(args);
   domPropertyLoad();
-  Store.set('customize', args);
-  import('@/renderer/views/index').then((app) => app.default());
+  createApp(App).use(router).mount('#app');
 });

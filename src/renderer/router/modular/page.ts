@@ -1,9 +1,11 @@
-const Router: Route[] = [
+import { RouteRecordRaw } from 'vue-router';
+
+const Route: RouteRecordRaw[] = [
   {
     path: '/home',
-    name: 'Index',
-    component: () => import('@/renderer/views/pages/home/index')
+    name: 'Home',
+    component: () => import('@/renderer/views/pages/home/index.vue')
   }
 ];
 
-export default Router;
+export default Route;
